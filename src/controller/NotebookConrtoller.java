@@ -21,4 +21,8 @@ public class NotebookConrtoller {
 
         notebookService.print(list);
     }
+
+    public List<NoteBook> getFilteredNotebookList(List<NoteBook> list, String field, String value){
+        return notebookService.methodFindAndWriteFilteringValue(list, field, value);
+    }
 }

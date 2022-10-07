@@ -12,7 +12,7 @@ public class Main {
         NoteBook n2 = new NoteBook("2", "MagicBook", Memory.SIXTEEN, "512", 1200);
         NoteBook n3 = new NoteBook("3", "Asus", Memory.TWO, "512", 1100);
 
-        ArrayList<NoteBook> al = new ArrayList<NoteBook>();
+        ArrayList<NoteBook> al = new ArrayList<>();
         al.add(n1);
         al.add(n2);
         al.add(n3);
@@ -29,8 +29,8 @@ public class Main {
         NotebookConrtoller controller = new NotebookConrtoller();
         PCController pcController = new PCController();
 
-        controller.printInLogNotebooks(al);
-        pcController.printInLogPCs(pc);
+        controller.printInLogNotebooks(controller.getFilteredNotebookList(al, "id", "2"));
+        pcController.printInLogPCs(pcController.getFilteredPCList(pc, "powerSupply", "450"));
 
     }
 }

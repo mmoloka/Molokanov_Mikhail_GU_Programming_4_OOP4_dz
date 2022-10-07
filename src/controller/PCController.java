@@ -1,5 +1,6 @@
 package controller;
 
+import data.NoteBook;
 import data.PC;
 import service.PCService;
 
@@ -21,5 +22,9 @@ public class PCController {
 
     public void printInLogPCs(List<PC> list) {
         pcService.print(list);
+    }
+
+    public List<PC> getFilteredPCList(List<PC> list, String field, String value){
+        return pcService.methodFindAndWriteFilteringValue(list, field, value);
     }
 }

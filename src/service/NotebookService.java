@@ -22,4 +22,43 @@ public class NotebookService implements  Sortable<NoteBook>, Printable<NoteBook>
         lg.info(list.toString());
     }
 
+    public List<NoteBook> methodFindAndWriteFilteringValue(List<NoteBook> list, String field, String value) { // данный метод выводит отфильтрованные строки
+        List<NoteBook> fList = new ArrayList<>();
+        for (NoteBook notebook : list) {
+            switch (field) {
+                case "id":
+                    if (notebook.getId().equals(value)) {
+                        fList.add(notebook);
+                    }
+                    break;
+
+                case "model":
+                    if (notebook.getModel().equals(value)) {
+                        fList.add(notebook);
+                    }
+                    break;
+
+                case "memory":
+                    if (notebook.getMemory().equals(Memory.valueOf(value))) {
+                        fList.add(notebook);
+                    }
+                    break;
+
+
+                case "ssd":
+                    if (notebook.getSsd().equals(value)) {
+                        fList.add(notebook);
+                    }
+                    break;
+
+                case "batteryCapacity":
+                    if(notebook.getBatteryCapacity().equals(Integer.valueOf((value)))) {
+                        fList.add(notebook);
+                    }
+            }
+        }
+
+        return fList;
+    }
+
 }
